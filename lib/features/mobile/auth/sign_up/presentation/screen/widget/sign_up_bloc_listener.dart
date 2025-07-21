@@ -1,7 +1,7 @@
 import 'package:book_rental_app/core/routes/routes.dart';
 import 'package:book_rental_app/core/utils/extensions.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_cubit.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_state.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

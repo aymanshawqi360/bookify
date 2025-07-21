@@ -8,7 +8,7 @@ import 'package:book_rental_app/features/mobile/auth/sign_up/data/api/sign_up_ap
 import 'package:book_rental_app/features/mobile/auth/sign_up/data/repo_implementation/sign_up_repo_implementaion.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/domain/repo/sign_up_repo_domain.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/domain/use_cases/sign_up_use_cases.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

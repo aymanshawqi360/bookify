@@ -2,7 +2,7 @@ import 'package:book_rental_app/core/di/dependency_injection.dart';
 import 'package:book_rental_app/core/routes/routes.dart';
 import 'package:book_rental_app/features/mobile/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:book_rental_app/features/mobile/auth/login/presentation/screen/login_screen.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/screen/sign_up_screen.dart';
 
 import 'package:flutter/material.dart';
