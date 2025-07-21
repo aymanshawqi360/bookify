@@ -2,7 +2,7 @@ import 'package:book_rental_app/features/mobile/auth/data/api/login_api_service.
 import 'package:book_rental_app/features/mobile/auth/data/repo_implementation/repo_implemenation.dart';
 import 'package:book_rental_app/features/mobile/auth/domain/login_use_cases.dart';
 import 'package:book_rental_app/features/mobile/auth/domain/repo/login_repo_domain.dart';
-import 'package:book_rental_app/features/mobile/auth/presentation/cubit/cubit/login_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/cubit/login_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
