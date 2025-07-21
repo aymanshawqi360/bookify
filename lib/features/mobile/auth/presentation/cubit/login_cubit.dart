@@ -4,7 +4,7 @@ import 'package:book_rental_app/core/errors/api_resulte.dart';
 import 'package:book_rental_app/features/mobile/auth/data/model/login_request_model.dart';
 import 'package:book_rental_app/features/mobile/auth/domain/entity/login_response_model_entity.dart';
 import 'package:book_rental_app/features/mobile/auth/domain/login_use_cases.dart';
-import 'package:book_rental_app/features/mobile/auth/presentation/cubit/cubit/login_state.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 
 class LoginCubit extends Cubit<LoginState> {
