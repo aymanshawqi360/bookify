@@ -17,22 +17,22 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  late TextEditingController controllerPasswrod;
-  late TextEditingController controllerEmail;
+  // TextEditingController? controllerPasswrod;
+  // TextEditingController? controllerEmail;
 
-  @override
-  void initState() {
-    controllerEmail = context.read<LoginCubit>().controllerEmail;
-    controllerPasswrod = context.read<LoginCubit>().controllerPassword;
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   controllerEmail = context.read<LoginCubit>().controllerEmail;
+  //   controllerPasswrod = context.read<LoginCubit>().controllerPassword;
+  //   super.initState();
+  // }
 
-  @override
-  void dispose() {
-    controllerEmail.dispose();
-    controllerPasswrod.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   controllerEmail?.dispose();
+  //   controllerPasswrod?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,8 @@ class _LoginFormState extends State<LoginForm> {
           verticalSpace(5),
           AppTextFormField(
             // hintText: "",
-            controller: controllerEmail,
+            controller: context.read<LoginCubit>().controllerEmail,
+            // controllerEmail,
             validator: (value) {
               if (value?.isEmpty ?? value == null) {
                 return "You did not enter userName";
@@ -62,7 +63,8 @@ class _LoginFormState extends State<LoginForm> {
                   (state is LoginHidePasswordWord) ? state.isPassword : false;
               return AppTextFormField(
                 obscureText: isPasswrod,
-                controller: controllerPasswrod,
+                controller: context.read<LoginCubit>().controllerPassword,
+                // controllerPasswrod,
                 suffixIcon: GestureDetector(
                   onTap: () {
                     context.read<LoginCubit>().hidePasswordWord();
