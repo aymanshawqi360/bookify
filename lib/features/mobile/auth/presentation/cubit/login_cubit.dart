@@ -43,4 +43,11 @@ class LoginCubit extends Cubit<LoginState> {
     isPassword = !isPassword;
     emit(LoginHidePasswordWord(isPassword: isPassword));
   }
+
+  @override
+  Future<void> close() {
+    controllerEmail.dispose();
+    controllerPassword.dispose();
+    return super.close();
+  }
 }
