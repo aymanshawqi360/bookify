@@ -7,8 +7,8 @@ import 'package:book_rental_app/core/utils/hex_colors.dart';
 import 'package:book_rental_app/core/utils/spacing.dart';
 import 'package:book_rental_app/core/widget/app_text_button.dart';
 import 'package:book_rental_app/core/widget/app_text_have_an_account.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_cubit.dart';
-import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/cubit/sign_up_state.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_state.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/screen/widget/sign_up_bloc_listener.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/screen/widget/sign_up_form.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,6 @@ class SignUpScreen extends StatelessWidget {
       child: Scaffold(
         //resizeToAvoidBottomInset: false,
         body: Container(
-          // width: context.screenWidth,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -57,11 +56,7 @@ class SignUpScreen extends StatelessWidget {
               verticalSpace(50),
               Flexible(
                 child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 15,
-                    right: 15,
-                    //bottom: context.screenHeight / 12,
-                  ),
+                  padding: EdgeInsets.only(left: 15, right: 15),
                   child: Container(
                     // height: 350,
                     height: context.screenHeight / 2.4,
@@ -108,7 +103,6 @@ class SignUpScreen extends StatelessWidget {
                             verticalSpace(20),
                             AppTextHaveAnAccount(
                               isLoginOrSignUp: AppStrings.login,
-                              // route: Routes.authLogin,
                               onTap: () {
                                 context.pushNamedAndRemoveUntil(
                                   Routes.authLogin,
