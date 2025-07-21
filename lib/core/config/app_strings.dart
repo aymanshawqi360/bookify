@@ -10,4 +10,7 @@ class AppStrings {
   static const String password = 'password';
   static const String bookApp = 'BookApp';
   static const String login = 'Login';
+  static const String signUp = 'SignUp';
+  static const String dontHaveAnAccount = 'Don’t have an account?';
+  static const String alreadyHaveAnAccount = 'Already have an account?';
 }
