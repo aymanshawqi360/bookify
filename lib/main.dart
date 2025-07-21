@@ -15,7 +15,7 @@ void main() async {
       backgroundColor: Colors.white,
 
       // enabled: !kReleaseMode,
-      enabled: true,
+      enabled: false,
       // tools: [...DevicePreview.defaultTools, CustomPaint()],
       builder: (context) => BookRentalApp(AppRouter()),
     ),
