@@ -1,14 +1,16 @@
 import 'package:book_rental_app/core/config/app_assest.dart';
 import 'package:book_rental_app/core/config/app_strings.dart';
-import 'package:book_rental_app/core/themes/color_manager.dart';
 import 'package:book_rental_app/core/themes/styles.dart';
 import 'package:book_rental_app/core/utils/extensions.dart';
 import 'package:book_rental_app/core/utils/hex_colors.dart';
 import 'package:book_rental_app/core/utils/spacing.dart';
-import 'package:book_rental_app/core/widget/app_row_login.dart';
 import 'package:book_rental_app/core/widget/app_text_button.dart';
-import 'package:book_rental_app/core/widget/app_text_form_field.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/cubit/login_cubit.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/cubit/login_state.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/screen/widget/login_bloc_listener.dart';
+import 'package:book_rental_app/features/mobile/auth/presentation/screen/widget/login_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,9 +21,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
         body: Container(
-          width: context.screenWidth,
+          // width: context.screenWidth,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -31,8 +33,7 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                     height: 28.h,
                     width: 28.w,
                   ),
-                  // horizontalSpace(10),
+
                   SizedBox(width: 10),
                   Text(
                     AppStrings.bookApp,
@@ -52,74 +53,75 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               verticalSpace(50),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 15,
-                      right: 15,
-                      //bottom: context.screenHeight / 12,
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 15,
+                    right: 15,
+                    //bottom: context.screenHeight / 12,
+                  ),
+                  child: Container(
+                    // height: 350,
+                    height: context.screenHeight / 2.6,
+                    constraints: BoxConstraints(
+                      // maxHeight: context.screenHeight / 1.8,
+                      //  maxHeight: context.screenHeight / 1.9,
                     ),
-                    child: Container(
-                      // height: 500.h,
-                      constraints: BoxConstraints(
-                        maxHeight: context.screenHeight / 1.8,
-                      ),
 
-                      width: context.screenWidth,
-                      decoration: BoxDecoration(
-                        color: HexColor("FFFFFF"),
-                        borderRadius: BorderRadius.circular(8),
+                    decoration: BoxDecoration(
+                      color: HexColor("FFFFFF"),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 24,
+                        right: 24,
+                        top: 24,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 24,
-                          right: 24,
-                          top: 24,
-                        ),
+                      child: SingleChildScrollView(
                         child: Column(
                           children: [
                             Text(
                               AppStrings.login,
                               style: TextStyles.font32BlackSemiBold,
                             ),
-
-                            verticalSpace(24),
-                            AppRowLogin(text: AppStrings.email),
-                            verticalSpace(10),
-                            AppTextFormField(),
-                            verticalSpace(20),
-                            AppRowLogin(text: AppStrings.password),
-                            verticalSpace(10),
-                            AppTextFormField(
-                              hintText: "●●●●●●●●●●●●●●●●",
-                              hintStyle: TextStyles.font8DartGrayBold,
-                              obscureText: true,
-                              suffixIcon: Icon(
-                                Icons.remove_red_eye,
-                                size: 20,
-                                color: ColorsManager.gray,
-                              ),
-                            ),
+                            LoginForm(),
                             verticalSpace(15),
-                            AppTextButton(
-                              width: context.screenWidth,
-                              // height: context.screenHeight / 15,
-                              height: 50,
-                              borderRadius: BorderRadius.circular(10),
+                            BlocBuilder<LoginCubit, LoginState>(
+                              builder: (context, state) {
+                                final cubit = (state is LoginLoading);
+                                return AppTextButton(
+                                  width: context.screenWidth,
+                                  text: "Log In",
+                                  isLoading: cubit ? true : false,
+
+                                  height: 50,
+                                  borderRadius: BorderRadius.circular(10),
+                                  onTap: () {
+                                    _checkUserNameAndPasswrod(context);
+                                  },
+                                );
+                              },
                             ),
                           ],
                         ),
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
+              LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  _checkUserNameAndPasswrod(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().getLogin();
+    }
   }
 }
 

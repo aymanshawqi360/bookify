@@ -1,9 +1,7 @@
 import 'package:book_rental_app/core/themes/color_manager.dart';
 import 'package:book_rental_app/core/themes/styles.dart';
-import 'package:book_rental_app/core/utils/extensions.dart';
 import 'package:book_rental_app/core/utils/hex_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextFormField extends StatelessWidget {
   final double? horizontal;
@@ -73,13 +71,18 @@ class AppTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
 
-        errorBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.red, width: 2),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 2.0),
+          borderRadius: BorderRadius.circular(10),
         ),
 
-        focusedErrorBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.red, width: 2),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 2.0),
+          borderRadius: BorderRadius.circular(10),
         ),
+        // UnderlineInputBorder(
+        //   borderSide: BorderSide(color: Colors.red, width: 2),
+        // ),
         suffixIcon: suffixIcon,
 
         isDense: true,
