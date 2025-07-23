@@ -52,4 +52,28 @@ class TextStyles {
     // fontFamily: AppStrings.fonFamilyApple,
     fontWeight: FontWeightHelper.semiBold,
   );
+  static TextStyle fon12DavysDraySemiRegular = TextStyle(
+    color: ColorsManager.davysDray,
+    fontSize: 12,
+    // fontFamily: AppStrings.fonFamilyApple,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle fon16DarkGraySemiRegular = TextStyle(
+    color: ColorsManager.darkGray,
+    fontSize: 16,
+    // fontFamily: AppStrings.fonFamilyApple,
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle fon15DavysDraySemiRegular = TextStyle(
+    color: ColorsManager.davysDray,
+    fontSize: 15,
+
+    fontWeight: FontWeightHelper.regular,
+  );
+  static TextStyle fon18DarkGraySemiRegular = TextStyle(
+    color: ColorsManager.darkGray,
+    fontSize: 18,
+
+    fontWeight: FontWeightHelper.regular,
+  );
 }
