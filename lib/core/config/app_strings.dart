@@ -13,4 +13,11 @@ class AppStrings {
   static const String signUp = 'SignUp';
   static const String dontHaveAnAccount = 'Don’t have an account?';
   static const String alreadyHaveAnAccount = 'Already have an account?';
+  static const String suggestionsForYou = 'Suggestions for you';
+  static const String theBestTours = 'The best tours';
+
+  //!Api
+  static const String baseUrl =
+      "https://book-app-65015-default-rtdb.firebaseio.com/";
+  // https://book-app-65015-default-rtdb.firebaseio.com/list_books.json
 }
