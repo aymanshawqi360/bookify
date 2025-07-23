@@ -20,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final bool? autofocus;
+  final Widget? prefixIcon;
   const AppTextFormField({
     super.key,
     this.horizontal,
@@ -38,6 +39,7 @@ class AppTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.autofocus,
+    this.prefixIcon,
   });
 
   @override
@@ -46,7 +48,7 @@ class AppTextFormField extends StatelessWidget {
       autofocus: autofocus ?? false,
       controller: controller,
 
-      style: TextStyle(color: ColorsManager.black),
+      //  style: TextStyle(color: ColorsManager.black),
       cursorColor: cursorColor ?? ColorsManager.black,
       decoration: InputDecoration(
         contentPadding:
@@ -84,6 +86,8 @@ class AppTextFormField extends StatelessWidget {
         //   borderSide: BorderSide(color: Colors.red, width: 2),
         // ),
         suffixIcon: suffixIcon,
+        // prefix:
+        prefixIcon: prefixIcon,
 
         isDense: true,
         filled: true,
