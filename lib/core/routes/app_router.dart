@@ -1,5 +1,7 @@
 import 'package:book_rental_app/core/di/dependency_injection.dart';
 import 'package:book_rental_app/core/routes/routes.dart';
+import 'package:book_rental_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:book_rental_app/features/home/presentation/home_screen.dart';
 import 'package:book_rental_app/features/mobile/auth/login/presentation/cubit/login_cubit.dart';
 import 'package:book_rental_app/features/mobile/auth/login/presentation/screen/login_screen.dart';
 import 'package:book_rental_app/features/mobile/auth/sign_up/presentation/cubit/sign_up_cubit.dart';
@@ -25,6 +27,14 @@ class AppRouter {
               (_) => BlocProvider(
                 create: (context) => sl<SignUpCubit>(),
                 child: SignUpScreen(),
+              ),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => sl<HomeCubit>()..getListBooks(),
+                child: HomeScreen(),
               ),
         );
 
