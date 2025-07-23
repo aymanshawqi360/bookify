@@ -22,7 +22,7 @@ class LoginBlocListener extends StatelessWidget {
         } else if (state is LoginSuccess) {
           if (state.user.user!.user!.emailVerified == true) {
             context.pushNamedAndRemoveUntil(
-              Routes.authSignUp,
+              Routes.homeScreen,
               predicate: (_) => false,
             );
           } else {
